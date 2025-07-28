@@ -7,6 +7,8 @@ stopit
 Public resources from ``stopit``
 """
 
+from .utils import LOG, TimeoutException
+
 try:
     from importlib.metadata import version
     __version__ = version(__name__)
@@ -22,7 +24,6 @@ except Exception:
     else:
         __version__ = pkg_resources.get_distribution(__name__).version
 
-from .utils import LOG, TimeoutException
 from .threadstop import ThreadingTimeout, async_raise, threading_timeoutable
 from .signalstop import SignalTimeout, signal_timeoutable
 
